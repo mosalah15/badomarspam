@@ -11,4 +11,4 @@ channel.send(`spam spam spam spam spam spam spam spam spam spam spam spam spam s
 })
  
  
-client.login('NTEzNzkxMzgyOTYwMjA5OTMw.DtVP6g._fCwwu_H-v6wkhNCxtctagXhfsM');
+client.login(process.env.BOT_TOKEN);
