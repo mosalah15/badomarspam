@@ -42,7 +42,7 @@
     "ytdl-core": "^0.21.1",
     "zalgolize": "^1.2.4"
   }
-}
+},
 {
   "name": "discord.js-heroku",
   "version": "1.0.0",
@@ -71,6 +71,7 @@
   "keywords": [
     "heroku",
     "discord.js"
+    "moment"
   ],
   "author": "",
   "license": "MIT",
