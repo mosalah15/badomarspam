@@ -1,6 +1,6 @@
 const Discord = require('moment');
-client.on("guildMemberAdd", m => {
-    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+client.on("guildMemberAdd", member => {
+    if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
          member.ban();
     };
     function parseDate(str) {
