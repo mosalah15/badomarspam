@@ -13,7 +13,6 @@ client.on("guildMemberAdd", m => {
        message.channel.send('!ban <@' + message.author.id + '> 3m')
        message.delete() 
        }
-    }
     };
 });
  
