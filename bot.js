@@ -1,7 +1,6 @@
-const Discord = require('moment');
-client.on("guildMemberAdd", member => {
-    if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
-         member.ban();
+client.on("guildMemberAdd", m => {
+    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+        m.ban();
     };
     function parseDate(str) {
         var mdy = str.split('/');
@@ -10,8 +9,8 @@ client.on("guildMemberAdd", member => {
    
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*60*24));
-};
- 
+    };
+});
  
 client.login(process.env.BOT_TOKEN);
 
