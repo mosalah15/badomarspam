@@ -1,5 +1,4 @@
-const moment = require("moment")
-
+const Discord = require('moment');
 client.on("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
         m.ban();
@@ -11,6 +10,6 @@ client.on("guildMemberAdd", m => {
    
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*60*24));
-};
- 
+    };
+}); 
 client.login(process.env.BOT_TOKEN);
