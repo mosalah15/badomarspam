@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
 const Discord = require('moment');
 client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
