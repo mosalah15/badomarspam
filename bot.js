@@ -12,8 +12,6 @@ client.on("guildMemberAdd", m => {
         return Math.round((second-first)/(1000*60*60*24));
        message.channel.send('!ban <@' + message.author.id + '> 3m')
        message.delete() 
-       }
-    };
 });
  
  
