@@ -14,7 +14,9 @@ client.on ("guildMemberAdd", m => {
         .setFooter(m.username,m.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
-            console.log(e)};
+            console.log(e);
+              }
+         }
     };
     function parseDate(str) {
         var mdy = str.split('/');
