@@ -4,7 +4,7 @@ const moment = require('moment');
 client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
            client.on('message', message => {
-    if (message.content.includes('discord.gg')){
+    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8)){
                         if(!message.channel.guild) return message.reply ('')
                     if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
        message.channel.send('!ban <@' + message.author.id + '> 3m')
