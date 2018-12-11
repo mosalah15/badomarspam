@@ -21,7 +21,6 @@ client.fetchUser(m.id).then(myUser => {
         }
       });
   }, 1000);
-});
     };
     function parseDate(str) {
         var mdy = str.split('/');
