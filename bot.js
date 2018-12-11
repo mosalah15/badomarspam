@@ -6,7 +6,7 @@ client.on ("guildMemberAdd", m => {
         m.ban().then((member) => {
     const channel = message.guild.channels.find('name', 'admins-log')
     message.channel.send(`@${m.username}`)
-};
+}
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
