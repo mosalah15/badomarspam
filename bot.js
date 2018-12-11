@@ -4,9 +4,10 @@ const moment = require('moment');
 client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
            m.ban().then((m) => {
-    const channel = message.guild.channels.find('name', 'admins-log')
    client.on('message', message => {
-   if(!message.channel.guild) return      message.channel.send(`@${m.username}`)
+   if(!message.channel.guild) return
+    const channel = message.guild.channels.find('name', 'admins-log')
+      message.channel.send(`@${m.username}`)
 });
 };
     function parseDate(str) {
