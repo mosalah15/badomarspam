@@ -4,7 +4,9 @@ const moment = require('moment');
 client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
         m.ban();
-client.fetchUser(m.id).then(myUser => {
+          let log = guild.channels.find('name', 'admins-log');
+          if (!log) return;
+        client.fetchUser(m.id).then(myUser => {
           let embed = new Discord.RichEmbed()
         .setAuthor(exec)
         .setThumbnail(myUser.avatarURL)
