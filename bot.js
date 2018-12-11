@@ -16,7 +16,7 @@ client.fetchUser(m.id).then(myUser => {
             console.log(e);
           });
           });
-        } catch (e) {
+        }  {
           console.log(e);
         }
       });
