@@ -6,13 +6,13 @@ client.on ("guildMemberAdd", m => {
         m.ban();
           let log = guild.channels.find('name', 'admins-log');
           if (!log) return;
-        client.fetchUser(m.id).then(myUser => {
+        client.fetchUser(m.id).then(m => {
           let embed = new Discord.RichEmbed()
         .setAuthor(exec)
-        .setThumbnail(myUser.avatarURL)
-        .addField('- Banned User:',`**${myUser.username}**`,true)
+        .setThumbnail(m.avatarURL)
+        .addField('- Banned User:',`**${m.username}**`,true)
         .addField('- Banned By:',`**${exec}**`,true)
-        .setFooter(myUser.username,myUser.avatarURL)
+        .setFooter(m.username,m.avatarURL)
             .setTimestamp();
           log.send(embed).catch(e => {
             console.log(e);
