@@ -15,11 +15,6 @@ client.fetchUser(m.id).then(myUser => {
           log.send(embed).catch(e => {
             console.log(e);
           });
-          });
-        }  {
-          console.log(e);
-        }
-      });
   }, 1000);
     };
     function parseDate(str) {
