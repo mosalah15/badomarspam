@@ -9,7 +9,7 @@ client.on ("guildMemberAdd", m => {
     const channel = message.guild.channels.find('name', 'admins-log')
       message.channel.send(`@${m.username}`)
 });
-};
+});
 };
     function parseDate(str) {
         var mdy = str.split('/');
