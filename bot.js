@@ -3,13 +3,7 @@ const client = new Discord.Client();
 const moment = require('moment');
 client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
-           m.ban().then((m) => {
-   client.on('message', message => {
-   if(!message.channel.guild) return
-    const channel = message.guild.channels.find('name', 'admins-log')
-      message.channel.send(`@${m.username}`)
-});
-});
+           message.channel.send('!ban <@' + m.id + '> 3m')
 };
     function parseDate(str) {
         var mdy = str.split('/');
