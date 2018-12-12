@@ -12,8 +12,8 @@ const wait = require('util').promisify(setTimeout);
 
     const stewart = member.guild.channels.find("name", "fake-invites");
      stewart.send(`<@${member.user.id}> banned and invited by <@${inviter.id}>`);
-  });
-};
+  };
+});
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
