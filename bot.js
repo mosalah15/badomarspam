@@ -14,7 +14,7 @@ client.on ("guildMemberAdd", member => {
         const stewart = member.guild.channels.find("name", "welcome");
      stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
   };
-};
+});
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
