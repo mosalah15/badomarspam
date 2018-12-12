@@ -16,8 +16,6 @@ client.on('ready', () => {
 });
 client.on('guildMemberAdd', m => { 
   m.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[m.guild.id];
-    invites[m.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
       if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
