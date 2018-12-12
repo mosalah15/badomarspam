@@ -15,7 +15,7 @@ client.on('ready', () => {
   });
 });
 client.on('guildMemberAdd', m => { 
-  member.guild.fetchInvites().then(guildInvites => {
+  m.guild.fetchInvites().then(guildInvites => {
     const ei = invites[m.guild.id];
     invites[m.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
@@ -25,6 +25,7 @@ client.on('guildMemberAdd', m => {
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${m} has been banned Invited by: <@${inviter.id}>`)
   };
+  });  
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
