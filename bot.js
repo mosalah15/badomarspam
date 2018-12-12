@@ -6,9 +6,7 @@ client.on ("guildMemberAdd", m => {
           m.ban()
 
    m.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[m.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
+    const inviter = client.users.get(inviter.id);
     const stewart = m.guild.channels.find("name", "admins-log");
      stewart.send(`<@${m.user.id}> has been banned as a fake invite (invited By  <@${inviter.id}>) `);
 });
