@@ -8,7 +8,6 @@ client.on('guildMemberAdd', member => {
           member.ban()
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const stewart = member.guild.channels.find("name", "fake-invites");
      stewart.send(`<@${member.user.id}> banned and invited by <@${inviter.id}>`);
