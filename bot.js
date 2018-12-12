@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require('moment');
-client.on('guildMemberAdd', member => { 
 const invites = {};
-const wait = require('util').promisify(setTimeout);
+client.on('guildMemberAdd', member => { 
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const inviter = client.users.get(invite.inviter.id);
