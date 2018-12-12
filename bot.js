@@ -5,7 +5,7 @@ client.on ("guildMemberAdd", m => {
     if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           m.ban()
             const stewart = m.guild.channels.find("name", "admins-log");
-     stewart.send(`<@${m.user.id}> fake`);
+     stewart.send(`<@${m.user.id}> has been banned as a fake invite (invited By  <@${inviter.id}>) `);
 };
     function parseDate(str) {
         var mdy = str.split('/');
