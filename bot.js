@@ -12,7 +12,6 @@ client.on ("guildMemberAdd", member => {
      stewart.send(`<@${member.user.id}> banned as fake invite <@${inviter.id}>`);
    //  stewart.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   });
-})
 };
     function parseDate(str) {
         var mdy = str.split('/');
