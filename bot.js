@@ -23,7 +23,7 @@ const ei = invites[m.guild.id];
       if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           m.ban()
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
-    logChannel.send(`${m} has been banned Invited by: <@${inviter.id}>`)
+    logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
   };
   });  
     function parseDate(str) {
