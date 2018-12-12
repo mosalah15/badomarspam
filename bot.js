@@ -1,14 +1,16 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require('moment');
-client.on ("guildMemberAdd", m => {
-    if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
-          m.ban()
+client.on ("guildMemberAdd", member => {
+    if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+          member.ban()
 
-   m.guild.fetchInvites().then(guildInvites => {
+   member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(inviter.id);
-    const stewart = m.guild.channels.find("name", "admins-log");
-     stewart.send(`<@${m.user.id}> has been banned as a fake invite (invited By  <@${inviter.id}>) `);
+    const stewart = member.guild.channels.find("name", "fake-invites");
+     stewart.send(`<@${member.user.id}> has been banned as a fake invite (invited By  <@${inviter.id}>) `);
 });
 };
     function parseDate(str) {
