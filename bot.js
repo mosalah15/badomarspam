@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const moment = require('moment');
 const invites = {};
 client.on('guildMemberAdd', member => { 
+  member.guild.fetchInvites().then(guildInvites => {
     const inviter = client.users.get(inviter.id);
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           member.ban()
