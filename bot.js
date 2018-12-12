@@ -13,8 +13,7 @@ client.on ("guildMemberAdd", member => {
           member.ban()
         const stewart = member.guild.channels.find("name", "welcome");
      stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
-  );
-)
+  };
 };
     function parseDate(str) {
         var mdy = str.split('/');
