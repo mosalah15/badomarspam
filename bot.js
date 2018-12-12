@@ -33,3 +33,4 @@ const logChannel = m.guild.channels.find(channel => channel.name === "fake-invit
         return Math.round((second-first)/(1000*60*60*24));
 };
     });
+client.login(process.env.BOT_TOKEN); 
