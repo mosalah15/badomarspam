@@ -12,7 +12,7 @@ client.on ("guildMemberAdd", m => {
     const stewart = m.guild.channels.find("name", "admins-log");
      stewart.send(`<@${m.user.id}> has been banned as a fake invite (invited By  <@${inviter.id}>) `);
 });
-});
+};
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
