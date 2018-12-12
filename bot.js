@@ -5,6 +5,7 @@ client.on('guildMemberAdd', member => {
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           member.ban()
 const invites = {};
+const wait = require('util').promisify(setTimeout);
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const inviter = client.users.get(invite.inviter.id);
