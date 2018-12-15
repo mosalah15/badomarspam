@@ -18,7 +18,7 @@ client.on('ready', () => {
     var command = args.shift()
     
     if(command == "setlesstime") {
-        let lesstime = (args.slice(1, args.length).join(" "));
+        let datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < (args.slice(1, args.length).join(" "));
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
       else
         message.channel.send('done')
@@ -28,7 +28,7 @@ client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < (process.env.lesstime) ) {
+      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) <  ) {
           member.ban()
 const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
