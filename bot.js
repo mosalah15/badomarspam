@@ -19,7 +19,7 @@ const ei = invites[m.guild.id];
     invites[m.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 1) {
+      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           m.ban()
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
@@ -31,7 +31,7 @@ const logChannel = m.guild.channels.find(channel => channel.name === "fake-invit
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*60*24*15));
+        return Math.round((second-first)/(1000*60*60*24));
 };
     });
 client.login(process.env.BOT_TOKEN); 
