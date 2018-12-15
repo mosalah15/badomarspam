@@ -23,6 +23,21 @@
     "ytdl-core": "^0.21.1",
     "moment": "^2.22.2",
     "npm": "^6.2.0"
+    "quick.db": "^6.3.2",
+    "figlet": "^1.2.1"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boltxyz/tutorials.git"
+  },
+  "author": "boltxyz",
+  "bugs": {
+    "url": "https://github.com/boltxyz/tutorials/issues"
+  },
+  "homepage": "https://github.com/boltxyz/tutorials#readme"
   },
 
   "keywords": [
