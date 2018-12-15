@@ -13,22 +13,27 @@ client.on('ready', () => {
     });
   });
 });
- client.on("message", function(message) {
-    var args = message.content.split(/ +/g);
-    var command = args.shift()
-    
-    if(command == "setlesstime") {
-        let lesstime = (args.slice(1, args.length).join(" "));
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
-      else
-        message.channel.send('done')
+client.on('message', async (message) => {
+    var prefix = '1';
+    var fetchedPrefix = await db.fetch(`serverPrefix_${message.guild.id}`);
+    if (fetchedPrefix === null || typeof fetchedPrefix === 'undefined') fetchedPrefix = prefix;
+    else prefix = fetchedPrefix;
 
+    if (message.author.bot) return undefined;
+    if (!message.content.startsWith(prefix)) return undefined;
+    var args = message.content.slice(prefix.length).trim().split(' ');
+    var command = args.shift().toLowerCase();
+    try {
+      if (command === 'prefix')
+      
+        let commands = require(`./commands/${command}.js`);
+    
 client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < (process.env.lesstime)  ) {
+      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < prefix  ) {
           member.ban()
 const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
