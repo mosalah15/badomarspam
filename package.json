@@ -31,13 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boltxyz/tutorials.git"
-  },
-  "author": "boltxyz",
-  "bugs": {
-    "url": "https://github.com/boltxyz/tutorials/issues"
-  },
-  "homepage": "https://github.com/boltxyz/tutorials#readme"
+    "url": "git+https://github.com/mosalah15/badomarspam.git"
   },
 
   "keywords": [
