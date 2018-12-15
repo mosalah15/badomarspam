@@ -13,13 +13,21 @@ client.on('ready', () => {
     });
   });
 });
+ client.on("message", function(message) {
+    var test = message.content.split(/ +/g);
+    var command = test.shift()
+    
+    if(command == "setlesstime") {
+  let test = message.content.split(" ").slice(1);
+    }
+});
 client.on('guildMemberAdd', m => { 
   m.guild.fetchInvites().then(guildInvites => {
 const ei = invites[m.guild.id];
     invites[m.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 30) {
+      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < test) {
           m.ban()
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
