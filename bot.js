@@ -18,21 +18,20 @@ client.on('ready', () => {
     var command = args.shift()
     
     if(command == "setlesstime") {
-        let setlesstime = (args.slice(1, args.length).join(" "));
+        let lesstime = (args.slice(1, args.length).join(" "));
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
       else
         message.channel.send('done')
 
-client.on('guildMemberAdd', m => { 
-  m.guild.fetchInvites().then(guildInvites => {
-const ei = invites[m.guild.id];
-    invites[m.guild.id] = guildInvites;
+client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
       if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < setlesstime ) {
-          m.ban()
-const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
-    logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
+          member.ban()
+const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
+    logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
     }
 })
     function parseDate(str) {
