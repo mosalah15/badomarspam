@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require('moment');
 const invites = {};
+const wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
   wait(100000);
