@@ -1,11 +1,11 @@
 {
-  "name": "discord.js-heroku",
-  "version": "1.0.0",
+  "name": "badomarspam",
+  "version": "0.0.1",
   "description": "Discord.js bot on Heroku",
   "main": "bot.js",
   "dependencies": {
     "node": "8.x",
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.4.2",
     "ffmpeg": "^0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "get-youtube-id": "^1.0.0",
