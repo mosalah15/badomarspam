@@ -17,16 +17,13 @@ client.on('ready', () => {
     var args = message.content.split(/ +/g);
     var command = args.shift()
     
-    if(command == "say") {
-        message.channel.send(args.slice(1, args.length).join(" "))    
-    }
-);
-client.on('guildMemberAdd', m => { 
     if(command == "setlesstime") {
-  let setlesstime = message.content.split(" ").slice(1);
+        let setlesstime = (args.slice(1, args.length).join(" "));
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
-      else 
+      else
         message.channel.send('done')
+
+client.on('guildMemberAdd', m => { 
   m.guild.fetchInvites().then(guildInvites => {
 const ei = invites[m.guild.id];
     invites[m.guild.id] = guildInvites;
@@ -37,7 +34,7 @@ const ei = invites[m.guild.id];
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
     }
-    }
+})
   });  
     function parseDate(str) {
         var mdy = str.split('/');
