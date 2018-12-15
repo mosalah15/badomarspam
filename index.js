@@ -71,4 +71,4 @@ client.on('message', async (message) => {
     }
 });
 
-client.login(env.TUTORIAL_BOT_TOKEN);
+client.login(process.env.BOT_TOKEN); 
