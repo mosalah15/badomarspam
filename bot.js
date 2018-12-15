@@ -32,8 +32,8 @@ const ei = invites[m.guild.id];
 const logChannel = m.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${m} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
     }
-});
-  };
+}
+  }
   });  
     function parseDate(str) {
         var mdy = str.split('/');
