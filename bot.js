@@ -21,25 +21,13 @@ client.on('message', async (message) => {
     if (fetchedPrefix === null || typeof fetchedPrefix === 'undefined') fetchedPrefix = prefix;
     else prefix = fetchedPrefix;
 
-    if (message.author.bot) return undefined;
-    if (!message.content.startsWith(prefix)) return undefined;
-    var args = message.content.slice(prefix.length).trim().split(' ');
-    var command = args.shift().toLowerCase();
-    try {
-        if (command === 'echo') command = 'say';
-        if (command === 'clear') command = 'purge';
-        if (command === 'yt') command = 'youtube';
-        let commands = require(`./commands/${command}.js`);
-        commands.run(client, message, args);
-    } catch (err) {
-        throw err;
-    }          
+         
 client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < prefix  ) {
+      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < fetchedPrefix  ) {
           member.ban()
 const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
