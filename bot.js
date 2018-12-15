@@ -2,7 +2,7 @@
 const client = new Discord.Client();
 const moment = require('moment');
 const invites = {};
-
+const db = require('quick.db');
 const wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
@@ -14,6 +14,12 @@ client.on('ready', () => {
     });
   });
 });
+client.on('message', async (message) => {
+    var prefix = '!';
+    var fetchedPrefix = await db.fetch(`serverPrefix_${message.guild.id}`);
+    if (fetchedPrefix === null || typeof fetchedPrefix === 'undefined') fetchedPrefix = prefix;
+    else prefix = fetchedPrefix;
+  });
 client.on('guildMemberAdd', m => { 
   m.guild.fetchInvites().then(guildInvites => {
 const ei = invites[m.guild.id];
