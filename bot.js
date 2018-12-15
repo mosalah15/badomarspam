@@ -28,7 +28,7 @@ client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < setlesstime ) {
+      if (datediff(parseDate(moment(m.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime ) {
           member.ban()
 const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
     logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
