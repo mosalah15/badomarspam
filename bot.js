@@ -32,7 +32,7 @@ const logChannel = m.guild.channels.find(channel => channel.name === "fake-invit
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*60*24*7));
+        return Math.round((second-first)/(1000*60*60*24*5));
 };
     });
 client.login(process.env.BOT_TOKEN); 
