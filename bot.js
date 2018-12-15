@@ -24,10 +24,14 @@ client.on('message', async (message) => {
     var args = message.content.slice(prefix.length).trim().split(' ');
     var command = args.shift().toLowerCase();
     try {
-      if (command === 'prefix')
-      
+        if (command === 'echo') command = 'say';
+        if (command === 'clear') command = 'purge';
+        if (command === 'yt') command = 'youtube';
         let commands = require(`./commands/${command}.js`);
-    
+        commands.run(client, message, args);
+    } catch (err) {
+        throw err;
+    }          
 client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
   member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
