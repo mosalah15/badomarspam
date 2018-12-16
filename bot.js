@@ -29,7 +29,7 @@ client.on ("roleUpdate", (member, guild)=> {
         let exec = audit.entries.map(a => a.executor.username);
           client.fetchUser(member.id).then(myUser => {
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
-          myUser.ban()
+          myUser.username.ban()
 };
 });
 });
