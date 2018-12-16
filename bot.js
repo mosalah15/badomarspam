@@ -20,7 +20,7 @@ client.on('ready', () => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (`serverPrefix_${message.guild.id}`, args.join(' ')).then((serverPrefix) => {
-    message.channel.send(`Server Prefix has been set to ${serverPrefix}`);    }
+   }
 });
 }
 });
