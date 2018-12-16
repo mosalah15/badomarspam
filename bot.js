@@ -21,6 +21,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (args.slice(1, args.length).join(" "))
 client.on ("memberaddRole", member => {
+  message.channel.send ('done')
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
           member.ban()
 
