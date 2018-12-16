@@ -4,15 +4,6 @@ const moment = require('moment');
 const invites = {};
 const wait = require('util').promisify(setTimeout);
 
-client.on = (client, message, args) => {
-if (command == "test") {
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
-  if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
-  
-  lesstime.set(`serverPrefix_${message.guild.id}`, args.join(' ')).then((serverPrefix) => {
-    message.channel.send(`Server Prefix has been set to ${serverPrefix}`);
-  });
-};
 client.on('ready', () => {
   wait(1000);
 
@@ -22,6 +13,16 @@ client.on('ready', () => {
     });
   });
 });
+client.on = (client, message, args) => {
+if (command == "test") {
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
+  if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
+  
+  lesstime.set(`serverPrefix_${message.guild.id}`, args.join(' ')).then((serverPrefix) => {
+    message.channel.send(`Server Prefix has been set to ${serverPrefix}`);
+  });
+}
+  });
 client.on('message', async (message) => {
     var prefix = '!';
     var fetchedPrefix = await lesstime.fetch(`serverPrefix_${message.guild.id}`);
