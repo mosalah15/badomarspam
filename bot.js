@@ -30,6 +30,7 @@ client.on ("roleUpdate", (member, guild)=> {
           client.fetchUser(member.id).then(myUser => {
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
           myUser.ban()
+});
 };
 });
     function parseDate(str) {
@@ -39,7 +40,6 @@ client.on ("roleUpdate", (member, guild)=> {
    
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*60*24));
-};
     });
       };
 });
