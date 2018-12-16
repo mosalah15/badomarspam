@@ -21,6 +21,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (args.slice(1, args.length).join(" "))
 client.on ("roleUpdate", (member, guild)=> {
+  client.setTimeout(() => {
     guild.fetchAuditLogs({
         limit: 1,
         type: 22
@@ -28,7 +29,7 @@ client.on ("roleUpdate", (member, guild)=> {
         .then(audit => {
         let exec = audit.entries.map(a => a.executor.username);
           client.fetchUser(member.id).then(myUser => {
-      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
+      if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           myUser.username.ban()
 };
 });
@@ -41,6 +42,7 @@ client.on ("roleUpdate", (member, guild)=> {
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*60*24));
 };
+});
 });
 }
 });
