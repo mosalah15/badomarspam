@@ -13,7 +13,9 @@ client.on('ready', () => {
     });
   });
 });
-client.on = (client, message, args) => {
+
+
+exports.run = (client, message, args) => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   
