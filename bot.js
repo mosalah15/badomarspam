@@ -24,7 +24,7 @@ client.on ("guildRoleAdd", (member, guild)=> {
   client.setTimeout(() => {
     guild.fetchAuditLogs({
         limit: 1,
-        type: MEMBER_Role_ADD
+        type: MEMBER_Role_Update
       })
         .then(audit => {
         let exec = audit.entries.map(a => a.executor.username);
