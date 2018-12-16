@@ -20,17 +20,12 @@ client.on('ready', () => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (args.slice(1, args.length).join(" "))
-client.on('ready', member=> {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id)
+client.on('ready', (member)=> {
+  member.guild.fetchdatediff()
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
           member.ban()
-const logChannel = member.guild.channels.find(channel => channel.name === "fake-invites");
-    logChannel.send(`${member} has been banned as a fake account ***Invited by: <@${inviter.id}>***`)
+
   };
-  });  
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
