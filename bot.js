@@ -20,12 +20,12 @@ client.on('ready', () => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (args.slice(1, args.length).join(" "))
-client.on ("guildRolesUpdate", (guild, member)=> {
+client.on ("guildMemberUpdate", (guild, member)=> {
   message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   client.setTimeout(() => {
     guild.fetchAuditLogs({
         limit: 1,
-        type: MEMBER_Role_Update
+        type: 24
       })
         .then(audit => {
         let exec = audit.entries.map(a => a.executor.username);
