@@ -20,10 +20,16 @@ client.on('ready', () => {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   var lesstime = (args.slice(1, args.length).join(" "))
-client.on ("roleAdd", member => {
-  message.channel.send ('done')
+client.on ("roleUpdate", (member, guild)=> {
+    guild.fetchAuditLogs({
+        limit: 1,
+        type: 22
+      })
+        .then(audit => {
+        let exec = audit.entries.map(a => a.executor.username);
+          client.fetchUser(member.id).then(myUser => {
       if (datediff(parseDate(moment(member.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < lesstime) {
-          member.ban()
+          myUser.ban()
 
   };
     function parseDate(str) {
@@ -33,6 +39,7 @@ client.on ("roleAdd", member => {
    
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*60*24));
+      };
 };
     });
       };
