@@ -22,7 +22,7 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('
     message.channel.send(`Server Prefix has been set to ${serverPrefix}`);
   });
 }
-  });
+  };
 client.on('message', async (message) => {
     var prefix = '!';
     var fetchedPrefix = await lesstime.fetch(`serverPrefix_${message.guild.id}`);
