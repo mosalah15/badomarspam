@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const moment = require('moment');
 const invites = {};
 const wait = require('util').promisify(setTimeout);
-
+const lesstime = require('quick.db');
 client.on('ready', () => {
   wait(1000);
 
