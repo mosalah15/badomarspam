@@ -30,6 +30,7 @@
     "heroku",
     "discord.js",
     "invites",
+    "db",
     "moment"
   ],
   "author": "",
