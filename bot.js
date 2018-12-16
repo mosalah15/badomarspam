@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const moment = require('moment');
 const invites = {};
 const wait = require('util').promisify(setTimeout);
-const lesstime = require('quick.db');
 client.on('ready', () => {
   wait(1000);
 
@@ -13,22 +12,18 @@ client.on('ready', () => {
     });
   });
 });
-
-
-exports.run = (client, message, args) => {
+ client.on("message", function(message) {
+    var args = message.content.split(/ +/g);
+    var command = args.shift()
+    
+    if(command == "say") {
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
-  
-  lesstime.set(`serverPrefix_${message.guild.id}`, args.join(' ')).then((serverPrefix) => {
-    message.channel.send(`Server Prefix has been set to ${serverPrefix}`);
-  });
-  };
-client.on('message', async (message) => {
-    var prefix = '!';
-    var fetchedPrefix = await lesstime.fetch(`serverPrefix_${message.guild.id}`);
-    if (fetchedPrefix === null || typeof fetchedPrefix === 'undefined') fetchedPrefix = prefix;
-    else prefix = fetchedPrefix;
-  });
+  var lesstime = (`serverPrefix_${message.guild.id}`, args.join(' ')).then((serverPrefix) => {
+    message.channel.send(`Server Prefix has been set to ${serverPrefix}`);    }
+});
+}
+});
 client.on('guildMemberAdd', m => { 
   m.guild.fetchInvites().then(guildInvites => {
 const ei = invites[m.guild.id];
