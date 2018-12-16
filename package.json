@@ -51,7 +51,7 @@
     "heroku",
     "discord.js",
     "invites",
-    "db",
+    "quick.db",
     "moment"
   ],
   "author": "",
