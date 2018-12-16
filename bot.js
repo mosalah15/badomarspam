@@ -16,7 +16,7 @@ client.on('ready', () => {
 });
 client.on('message', async (message) => {
     var prefix = '!';
-    var fetchedPrefix = await ./commands/prefix.js db.fetch(`serverPrefix_${message.guild.id}`);
+    var fetchedPrefix = await db.fetch(`serverPrefix_${message.guild.id}`);
     if (fetchedPrefix === null || typeof fetchedPrefix === 'undefined') fetchedPrefix = prefix;
     else prefix = fetchedPrefix;
   });
