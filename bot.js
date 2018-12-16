@@ -5,7 +5,7 @@ const invites = {};
 const db = require('quick.db');
 const wait = require('util').promisify(setTimeout);
 
-exports.run = (client, message, args) => {
+client.on = (client, message, args) => {
   if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('You don\'t have permission to set server prefix.');
   if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
   
