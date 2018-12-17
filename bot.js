@@ -19,19 +19,19 @@ client.on('ready', () => {
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
             logChannel.send('updateNickname');
-      if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1) {
+      if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) > 1) {
           newMember.ban()
 };
+};
+});
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*60));
+        return Math.round((second-first)/(1000*60*5));
 };
-};
-});
 });
 client.on("message", message => {
   var prefix = ('!')
