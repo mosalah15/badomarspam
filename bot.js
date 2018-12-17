@@ -12,19 +12,14 @@ client.on('ready', () => {
     });
   });
 });
- client.on("message", function(message) {
-    var args = message.content.split(/ +/g);
-    var command = args.shift()
-    
-    if(command == "say") {
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
-  if (!args.join(' ')) return message.channel.send('Please provide a prefix to set server prefix.');
-  var lesstime = (args.slice(1, args.length).join(" "))
+
 client.on('guildMemberUpdate', (oldMember, newMember) => {
+    oldMember.guild.fetchAuditLogs().then(logs => {
+    var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
     const channel = newMember.guild.channels.find("name", "general");
-          message.channel.send('test');
+            logChannel.send('updateNickname');
       if (datediff(parseDate(moment(newMember.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           newMember.ban()
 };
@@ -38,6 +33,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
         return Math.round((second-first)/(1000*60*60*24));
 };
 });
-}
 });
+  
+  
 client.login(process.env.BOT_TOKEN); 
