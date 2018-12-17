@@ -13,16 +13,18 @@ client.on('ready', () => {
   });
 });
 
-  client.on('guildMemberUpdate', (oldMember, newMember, message) => {
+  client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchAuditLogs().then(logs => {
     var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
             logChannel.send('updateNickname');
-      if (!datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1) 
+      if (!datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1) {
 		newMember.ban()
+	      };
 	      	  }  else {
-			newMember.first().removeRole('new role2');
+			  var role1 = ('new role2')
+			newMember.members.first().removeRole( role1 );
 	}; 
 });
     function parseDate(str) {
