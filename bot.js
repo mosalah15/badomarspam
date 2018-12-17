@@ -21,7 +21,7 @@ client.on('ready', () => {
             logChannel.send('updateNickname');
       if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1){ { 
 	     newMember.removeRole('new role2')
-	      	  }  else {
+	      	  }  else 
 		newMember.ban()
 	}; 
 	}; 
