@@ -42,4 +42,6 @@ if (message.author.bot) return;
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
    var role = member.guild.roles.find ("name", "new role2");
    humans.addRole (role);
+};
+});
       client.login(process.env.BOT_TOKEN); 
