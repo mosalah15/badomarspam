@@ -19,7 +19,7 @@ client.on('ready', () => {
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
             logChannel.send('updateNickname');
-      if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) > 1) {
+      if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) > 0.1) {
           newMember.ban()
 };
     function parseDate(str) {
@@ -28,7 +28,7 @@ client.on('ready', () => {
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60));
+        return Math.round((second-first)/(1000*60*60));
 };
 };
 });
