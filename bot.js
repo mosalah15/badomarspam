@@ -26,7 +26,7 @@ message.channel.send('test');
       if (datediff(parseDate(moment(newMember.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           newMember.ban()
 };
-});
+};
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
