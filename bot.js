@@ -22,7 +22,9 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('
   var lesstime = (args.slice(1, args.length).join(" "))
 client.on('guildMemberUpdate', (oldMember, newMember) => {
         if(oldMember.roles.size < newMember.roles.size) {
-message.channel.send('test');
+            let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
+    const channel = newMember.guild.channels.find("name", "general");
+          message.channel.send('test');
       if (datediff(parseDate(moment(newMember.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
           newMember.ban()
 };
