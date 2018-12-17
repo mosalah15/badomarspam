@@ -25,7 +25,6 @@ client.on('ready', () => {
 		newMember.ban()
 	}; 
 	}; 
-};
 });
     function parseDate(str) {
         var mdy = str.split('/');
