@@ -33,5 +33,13 @@ client.on('ready', () => {
 };
 });
 });
-  
-client.login(process.env.BOT_TOKEN); 
+client.on('message', (message,humans,member) => {
+if (message.author.bot) return;
+
+  let command = message.content.split(" ")[0];
+  let args = message.content.split(" ").slice(1);
+    if (command == ('give humans')) {
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
+   var role = member.guild.roles.find ("name", "new role2");
+   humans.addRole (role);
+      client.login(process.env.BOT_TOKEN); 
