@@ -53,5 +53,6 @@ if( args[0].toLowerCase() == "humans" ){
 			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
 		} 	
 };
+};
 });
       client.login(process.env.BOT_TOKEN); 
