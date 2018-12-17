@@ -33,15 +33,25 @@ client.on('ready', () => {
 };
 });
 });
-client.on('message', (message,humans,member) => {
-if (message.author.bot) return;
-
-  let command = message.content.split(" ")[0];
-  let args = message.content.split(" ").slice(1);
-    if (command == ('give humans')) {
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('?|**\`ADMINISTRATOR\`ليس لديك صلاحيات`**');
-   var role = member.guild.roles.find ("name", "new role2");
-   humans.addRole (role);
+client.on("message", message => {
+  var prefix = ('!')
+	var args = message.content.split(' ').slice(1); 
+	var msg = message.content.toLowerCase();
+	var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
+	var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
+	if( !message.guild ) return;
+	if( !msg.startsWith( prefix + 'role' ) ) return;
+	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
+   if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+		} 
+	 else {
+	if( msg.toLowerCase().startsWith( prefix + 'roleremove' ) ){
+if( args[0].toLowerCase() == "humans" ){
+			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
+			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
+		} 	
 };
 });
       client.login(process.env.BOT_TOKEN); 
