@@ -13,14 +13,13 @@ client.on('ready', () => {
   });
 });
 
-client.on('guildMemberUpdate', (oldMember, newMember) => {
+  client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchAuditLogs().then(logs => {
     var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
-    const channel = newMember.guild.channels.find("name", "general");
             logChannel.send('updateNickname');
-      if (datediff(parseDate(moment(newMember.user.createdTimestamp).format('l')), parseDate(moment().format('l'))) < 8) {
+      if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 8) {
           newMember.ban()
 };
 };
@@ -34,6 +33,5 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
 };
 });
 });
-  
   
 client.login(process.env.BOT_TOKEN); 
