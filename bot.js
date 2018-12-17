@@ -22,7 +22,6 @@ client.on('ready', () => {
       if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) > 1) {
           newMember.ban()
 };
-};
     function parseDate(str) {
         var mdy = str.split('/');
         return new Date(mdy[2], mdy[0]-1, mdy[1]);
@@ -30,6 +29,7 @@ client.on('ready', () => {
    
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60));
+};
 };
 });
 });
