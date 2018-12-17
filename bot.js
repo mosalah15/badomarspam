@@ -22,7 +22,7 @@ client.on('ready', () => {
       if (!datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1) 
 		newMember.ban()
 	      	  }  else {
-			newMember.first().removeRole('new role2'))
+			newMember.first().removeRole('new role2')
 	}; 
 	}; 
 });
