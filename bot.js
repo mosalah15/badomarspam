@@ -22,8 +22,7 @@ client.on('ready', () => {
       if (datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l'))) < 1) { 
 	      newMember.removeRole()
 	      
-	} else {
-		newMember.ban()
+	}; 
 };
 });
     function parseDate(str) {
@@ -34,6 +33,8 @@ client.on('ready', () => {
     function datediff(first, second) {
         return Math.round((second-first)/(1000*60*10*1));
 };
+	    else {
+		newMember.ban()
 });
 client.on("message", message => {
   var prefix = ('!')
