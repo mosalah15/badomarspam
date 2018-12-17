@@ -32,7 +32,7 @@ client.on('ready', () => {
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*10*1));
+        return Math.round((second-first)/(1000*60*1*1));
 };
 
 });
