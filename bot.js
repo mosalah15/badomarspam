@@ -30,7 +30,7 @@ client.on('ready', () => {
     };
    
     function datediff(first, second) {
-        return Math.round((second-first)/(1000*60*60*24));
+        return Math.round((second-first)/(1000*60*10*1));
 };
 });
 client.on("message", message => {
