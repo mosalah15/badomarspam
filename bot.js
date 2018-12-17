@@ -24,7 +24,7 @@ client.on('ready', () => {
 	      };
 	      	  }  else {
 			  var role1 = ('new role2')
-			newMember.members.first().removeRole( role1 );
+			newMember.members.removeRole( role1 );
 	}; 
 });
     function parseDate(str) {
