@@ -75,8 +75,8 @@ client.on('guildBanAdd', (guild, user) => {
     })
 });
   client.on('guildMemberPrune', (guild, user) => {
-guild.fetchAuditLogs().then(logs => {
+guild.fetchAuditLogs().then
 	user.ban()
   });
-
+});
       client.login(process.env.BOT_TOKEN); 
