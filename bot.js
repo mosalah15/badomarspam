@@ -12,7 +12,8 @@ client.on('ready', () => {
     });
   });
 });
-  client.guilds.find('id', 'SERVER ID').fetchMembers().then(members => {
+  client.on('ready', (guilds) => {
+	  guilds.find('id', 'SERVER ID').fetchMembers().then(members => {
         const role = members.roles.find('name', 'new role2')
 
         role.members.forEach(member => {
@@ -33,7 +34,8 @@ client.on('ready', () => {
         return Math.round((second-first)/(1000*60*60*24));
 };
 	})
-  })
+   })
+ })
   client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchMembers().then(LastSeen => {
       if (datediff(parseDate(moment(newMember.user.lastMessage).format('l')), parseDate(moment().format('l'))) > 1) {
