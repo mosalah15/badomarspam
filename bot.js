@@ -12,7 +12,28 @@ client.on('ready', () => {
     });
   });
 });
+  client.guilds.find('id', 'SERVER ID').fetchMembers().then(members => {
+        const role = members.roles.find('name', 'new role2')
 
+        role.members.forEach(member => {
+              console.log(member.user.lastMessage) // null
+      if (datediff(parseDate(moment(member.user.lastMessage).format('l')), parseDate(moment().format('l'))) > 1) {
+		member.ban()
+	      }; 
+    function parseDate(str) {
+        var mdy = str.split('/');
+        return new Date(mdy[2], mdy[0]-1, mdy[1]);
+    };
+   
+    function datediff(first, second) {
+        return Math.round((second-first)/(1000*60*60*24));
+};
+		   
+    function datediff(first, second) {
+        return Math.round((second-first)/(1000*60*60*24));
+};
+	})
+  })
   client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchMembers().then(LastSeen => {
       if (datediff(parseDate(moment(newMember.user.lastMessage).format('l')), parseDate(moment().format('l'))) > 1) {
