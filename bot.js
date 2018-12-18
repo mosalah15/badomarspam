@@ -19,7 +19,7 @@ client.on('ready', () => {
       if (datediff(parseDate(moment(newMember.user.LastSeen).format('l')), parseDate(moment().format('l'))) > 1) {
 		newMember.ban()
 	      };
-	      	  }  
+	      	}); 
 });
     function parseDate(str) {
         var mdy = str.split('/');
