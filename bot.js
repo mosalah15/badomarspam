@@ -19,7 +19,7 @@ client.on('ready', () => {
         if(oldMember.roles.size < newMember.roles.size) {
             let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
             logChannel.send('updateNickname');
-      if (1 < datediff(parseDate(moment(newMember.user.lastseen).format('l')), parseDate(moment().format('l')))) {
+      if (datediff(parseDate(moment(newMember.user.LastSeen).format('l')), parseDate(moment().format('l'))) > 1) {
 		newMember.ban()
 	      };
 	      	  }  
