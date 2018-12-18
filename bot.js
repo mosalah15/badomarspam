@@ -49,4 +49,7 @@ if( args[0].toLowerCase() == "humans" ){
 		} 
 };
 });
+  client.on('guildMemberPrune', member => {
+	  member.guild.fetchAuditLogs().then member.ban
+
       client.login(process.env.BOT_TOKEN); 
