@@ -14,7 +14,7 @@ client.on('ready', () => {
 });
   client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchLastMessage().then(lastMessage => {
-      if (datediff(parseDate(moment(newMember.user.LAST_SEEN).format('l')), parseDate(moment().format('l'))) > 1) {
+      if (datediff(parseDate(moment(newMember.user.LastSeenTimestamp).format('l')), parseDate(moment().format('l'))) > 1) {
           newMember.ban()
 	      };
 });
