@@ -13,7 +13,7 @@ client.on('ready', () => {
   });
 });
   client.on('guildMemberUpdate', (oldMember, newMember) => {
-    oldMember.guild.fetchLastMessage().then(lastMessage => {
+    oldMember.guild.fetchAuditLogs().then(lastMessage => {
       if (datediff(parseDate(moment(newMember.user.LastSeenTimestamp).format('l')), parseDate(moment().format('l'))) > 1) {
           newMember.ban()
 	      };
@@ -48,5 +48,30 @@ if( args[0].toLowerCase() == "humans" ){
 			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
 		} 
 };
+});
+client.on('guildBanAdd', (guild, user) => {
+ 
+    if(!guild.member(client.user).hasPermission('EMBED_LINKS')) return;
+    if(!guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
+ 
+    var logChannel = guild.channels.find(c => c.name === 'log');
+    if(!logChannel) return;
+ 
+    guild.fetchAuditLogs().then(logs => {
+        var userID = logs.entries.first().executor.id;
+        var userAvatar = logs.entries.first().executor.avatarURL;
+ 
+        if(userID === client.user.id) return;
+ 
+        let banInfo = new Discord.RichEmbed()
+        .setTitle('**تم اعطاء باند للعضو**')
+        .setThumbnail(userAvatar)
+        .setColor('DARK_RED')
+        .setDescription(`**\n**:airplane: Successfully \`\`BANNED\`\` **${user.username}** From the server!\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`)
+        .setTimestamp()
+        .setFooter(guild.name, guild.iconURL)
+ 
+        logChannel.send(banInfo);
+    })
 });
       client.login(process.env.BOT_TOKEN); 
