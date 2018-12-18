@@ -15,11 +15,8 @@ client.on('ready', () => {
 
   client.on('guildMemberUpdate', (oldMember, newMember) => {
     oldMember.guild.fetchAuditLogs().then(logs => {
-    var logChannel = oldMember.guild.channels.find(c => c.name === 'log');
-        if(oldMember.roles.size < newMember.roles.size) {
-            let role = newMember.roles.filter(r => !oldMember.roles.has(r.id)).first();
-            logChannel.send('updateNickname');
-      if (datediff(parseDate(moment(newMember.user.lastSeen).format('l')), parseDate(moment().format('l'))) > 1) {
+    oldMember.guild.fetchLastSeen().then(LastSeen => {
+      if (datediff(parseDate(moment(newMember.user.LastSeen).format('l')), parseDate(moment().format('l'))) > 1) {
 		newMember.ban()
 	      };
 	      	  }  
